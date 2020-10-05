@@ -1,0 +1,112 @@
+using System;
+using System.Linq;
+
+namespace Numbers
+{
+    class Number
+    {
+        public int FindFibbonachi(int number)
+        {
+            if (number == 1)
+            {
+                return 1;
+            }
+            if (number == 2)
+            {
+                return 1;
+            }
+            else
+            {
+                return FindFibbonachi(number - 1) + FindFibbonachi(number - 2);
+            }
+        }
+       public int Fact(int number)
+       {
+            if (number == 0)
+            {
+                return 1;
+            }
+            if (number == 1)
+            {
+                return 1;
+            }
+            else
+            {
+                return number * Fact(number - 1);
+            }
+       }
+        public void BinarySeaech(int number, int[] mynumbers, int first, int last)
+        {
+            bool found = false;
+            while (!found && first <= last)
+            {
+                int mid = (first + last) / 2;
+
+                if (number < mynumbers[mid])
+                {
+                    first = mid + 1;
+                }
+
+                if (number > mynumbers[mid])
+                {
+                    last = mid - 1;
+                }
+                else
+                {
+                    found = true;
+                    Console.WriteLine($"Число {number} найдено с помощью бинарного поиска!");
+                }
+            }
+        }
+    }
+    class Program
+    {
+        static void Main()
+        {
+
+            while (true)
+            {
+
+                Console.WriteLine("Записать число?\n1-Дa\nAnother-net");
+                int choose1 = Convert.ToInt32(Console.ReadLine());
+                if (choose1 == 1)
+                {
+                    Number person = new Number();
+                    Console.Write("Введите число(от 1 до 100) : ");
+                    int number = Convert.ToInt32(Console.ReadLine());
+                    while (number <= 0 || number > 100)
+                    {
+                        Console.WriteLine("Повторите попытку");
+                        number = Convert.ToInt32(Console.ReadLine());
+                    }
+                    Console.WriteLine("Выберите действие с этим числом :\n1-Найти факториал\n2-Найти число фибоначчи\n3-Найти число в массива, с помощью бинарного поиска");
+                    int choose = Convert.ToInt32(Console.ReadLine());
+                    switch (choose)
+                    {
+                        case 1:
+                            {
+                                Console.WriteLine($"Факториал числа {number} равен : {person.Fact(number)}");
+                                break;
+                            }
+                        case 2:
+                            {
+                                Console.WriteLine($"Порядковый номер {number} в ряду фиббоначи равен : {person.FindFibbonachi(number)}");
+                                break;
+                            }
+                        case 3:
+                            {
+                                int[] arr = Enumerable.Range(1, 100).ToArray();
+                                person.BinarySeaech(number, arr, arr[0], arr[99]);
+                                break;
+                            }
+                        default:
+                            {
+                                break;
+                            }
+                    }
+                }
+                else { break; }
+            }
+        }      
+    }
+}
