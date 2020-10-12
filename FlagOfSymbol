@@ -1,0 +1,79 @@
+using System;
+
+
+namespace Домашка_4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                Console.Write("Введите символ, которым нужно нарисовать флаг(Желательно $ @ *) : ");
+                char symbol = Convert.ToChar(Console.ReadLine());
+                Flag flag = new Flag();
+                flag.Drow(symbol);
+                Console.WriteLine("Хотите ещё какой-нибудь флаг? \n1-Да\n2-Another");
+                int choose=Convert.ToInt32(Console.ReadLine());
+                if(choose!=1)
+                { break; }
+                Console.WriteLine();
+            }
+        }
+    }
+    class Flag
+    {
+       public void Drow(char symbol)
+        {
+            if (symbol =='$')
+            {
+                Console.WriteLine("$$$$$$$$$$$$$");
+                Console.WriteLine("");
+                Console.WriteLine("$$$$$$$$$$$$$");
+                Console.WriteLine("");
+                Console.WriteLine("$$$$$$$$$$$$$");
+            }
+            else if(symbol =='*')
+            {
+                Console.WriteLine("*******************");
+                Console.WriteLine("*       ***       *");
+                Console.WriteLine("*       ***       *");
+                Console.WriteLine("*******************");
+                Console.WriteLine("*******************");
+                Console.WriteLine("*       ***       *");
+                Console.WriteLine("*       ***       *");
+                Console.WriteLine("*******************");
+            }
+            else if(symbol=='@')
+            {
+                Console.WriteLine("@@@@@@@@@@@@@@@@@@@");
+                Console.WriteLine("@ @             @ @");
+                Console.WriteLine("@  @           @  @");
+                Console.WriteLine("@   @         @   @");
+                Console.WriteLine("@    @       @    @");
+                Console.WriteLine("@     @     @     @");
+                Console.WriteLine("@      @   @      @");
+                Console.WriteLine("@       @ @       @");
+                Console.WriteLine("@@@@@@@@@@@@@@@@@@@");
+            }
+            else
+            {
+                Console.WriteLine("ИЗВИНИТЕ...........");
+                Console.WriteLine("...НО...ТАКОГО...СИМВОЛА...НЕТУ...");
+                Console.WriteLine("ПОЭТОМУ...ВОТ...ВАМ...ТАКОЙ...");
+                Console.WriteLine("FFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+                Console.WriteLine("FFF       FFFFFFF         FFF");
+                Console.WriteLine("FFF       FFFFFFF         FFF");
+                Console.WriteLine("FFF       FF              FFF");
+                Console.WriteLine("FFF       FF              FFF");
+                Console.WriteLine("FFF       FFFFFFF         FFF");
+                Console.WriteLine("FFF       FFFFFFF         FFF");
+                Console.WriteLine("FFF       FF              FFF");
+                Console.WriteLine("FFF       FF              FFF");
+                Console.WriteLine("FFF       FF              FFF");
+                Console.WriteLine("FFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+            }
+        }
+
+    }
+}
